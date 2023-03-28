@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  FlickrPhotoSearch
+
+  Created by Paul Alvarez on 28/03/23.
+  
+*/
+
+// MARK: - TabBar
+"feed_tab_bar_title" = "Feed";
+"search_tab_bar_title" = "Search";
