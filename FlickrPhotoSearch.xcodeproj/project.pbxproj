@@ -9,18 +9,14 @@
 /* Begin PBXBuildFile section */
 		839B9FE529D36FCE00BE42AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B9FE429D36FCE00BE42AF /* AppDelegate.swift */; };
 		839B9FE729D36FCE00BE42AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B9FE629D36FCE00BE42AF /* ViewController.swift */; };
-		839B9FEA29D36FCE00BE42AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839B9FE829D36FCE00BE42AF /* Main.storyboard */; };
 		839B9FEC29D36FCF00BE42AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 839B9FEB29D36FCF00BE42AF /* Assets.xcassets */; };
-		839B9FEF29D36FCF00BE42AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839B9FED29D36FCF00BE42AF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		839B9FE129D36FCE00BE42AF /* FlickrPhotoSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrPhotoSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		839B9FE429D36FCE00BE42AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		839B9FE629D36FCE00BE42AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		839B9FE929D36FCE00BE42AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		839B9FEB29D36FCF00BE42AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		839B9FEE29D36FCF00BE42AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +51,7 @@
 			children = (
 				839B9FE429D36FCE00BE42AF /* AppDelegate.swift */,
 				839B9FE629D36FCE00BE42AF /* ViewController.swift */,
-				839B9FE829D36FCE00BE42AF /* Main.storyboard */,
 				839B9FEB29D36FCF00BE42AF /* Assets.xcassets */,
-				839B9FED29D36FCF00BE42AF /* LaunchScreen.storyboard */,
 			);
 			path = FlickrPhotoSearch;
 			sourceTree = "<group>";
@@ -120,9 +114,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				839B9FEF29D36FCF00BE42AF /* LaunchScreen.storyboard in Resources */,
 				839B9FEC29D36FCF00BE42AF /* Assets.xcassets in Resources */,
-				839B9FEA29D36FCE00BE42AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,25 +131,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		839B9FE829D36FCE00BE42AF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				839B9FE929D36FCE00BE42AF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		839B9FED29D36FCF00BE42AF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				839B9FEE29D36FCF00BE42AF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		839B9FF029D36FCF00BE42AF /* Debug */ = {
@@ -285,8 +258,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7C9T7K4LUL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -310,8 +281,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7C9T7K4LUL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
