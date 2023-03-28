@@ -8,15 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		839B9FE529D36FCE00BE42AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B9FE429D36FCE00BE42AF /* AppDelegate.swift */; };
-		839B9FE729D36FCE00BE42AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B9FE629D36FCE00BE42AF /* ViewController.swift */; };
+		839B9FE729D36FCE00BE42AF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B9FE629D36FCE00BE42AF /* FeedViewController.swift */; };
 		839B9FEC29D36FCF00BE42AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 839B9FEB29D36FCF00BE42AF /* Assets.xcassets */; };
+		839B9FFB29D3734000BE42AF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B9FFA29D3734000BE42AF /* SearchViewController.swift */; };
+		839B9FFE29D3738000BE42AF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B9FFD29D3738000BE42AF /* TabBarController.swift */; };
+		839BA00529D37B6C00BE42AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 839BA00429D37B6C00BE42AF /* Localizable.strings */; };
+		839BA00729D37C0F00BE42AF /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BA00629D37C0F00BE42AF /* String + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		839B9FE129D36FCE00BE42AF /* FlickrPhotoSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrPhotoSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		839B9FE429D36FCE00BE42AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		839B9FE629D36FCE00BE42AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		839B9FE629D36FCE00BE42AF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		839B9FEB29D36FCF00BE42AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		839B9FFA29D3734000BE42AF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		839B9FFD29D3738000BE42AF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		839BA00429D37B6C00BE42AF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		839BA00629D37C0F00BE42AF /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,11 +57,87 @@
 		839B9FE329D36FCE00BE42AF /* FlickrPhotoSearch */ = {
 			isa = PBXGroup;
 			children = (
-				839B9FE429D36FCE00BE42AF /* AppDelegate.swift */,
-				839B9FE629D36FCE00BE42AF /* ViewController.swift */,
-				839B9FEB29D36FCF00BE42AF /* Assets.xcassets */,
+				839B9FF629D372F600BE42AF /* Sources */,
+				839B9FF529D372BD00BE42AF /* Resources */,
 			);
 			path = FlickrPhotoSearch;
+			sourceTree = "<group>";
+		};
+		839B9FF529D372BD00BE42AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				839B9FEB29D36FCF00BE42AF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		839B9FF629D372F600BE42AF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				839B9FE429D36FCE00BE42AF /* AppDelegate.swift */,
+				839B9FFF29D37B1600BE42AF /* Utility */,
+				839B9FF729D3731E00BE42AF /* Modules */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		839B9FF729D3731E00BE42AF /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				839B9FFC29D3737600BE42AF /* TabBar */,
+				839B9FF829D3732400BE42AF /* Feed */,
+				839B9FF929D3732A00BE42AF /* Search */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		839B9FF829D3732400BE42AF /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				839B9FE629D36FCE00BE42AF /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		839B9FF929D3732A00BE42AF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				839B9FFA29D3734000BE42AF /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		839B9FFC29D3737600BE42AF /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				839B9FFD29D3738000BE42AF /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		839B9FFF29D37B1600BE42AF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				839BA00329D37B3000BE42AF /* Extension */,
+				839BA00029D37B1C00BE42AF /* Localizable */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		839BA00029D37B1C00BE42AF /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				839BA00429D37B6C00BE42AF /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		839BA00329D37B3000BE42AF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				839BA00629D37C0F00BE42AF /* String + Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				839B9FEC29D36FCF00BE42AF /* Assets.xcassets in Resources */,
+				839BA00529D37B6C00BE42AF /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +210,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				839B9FE729D36FCE00BE42AF /* ViewController.swift in Sources */,
+				839B9FFB29D3734000BE42AF /* SearchViewController.swift in Sources */,
+				839B9FFE29D3738000BE42AF /* TabBarController.swift in Sources */,
+				839BA00729D37C0F00BE42AF /* String + Extension.swift in Sources */,
+				839B9FE729D36FCE00BE42AF /* FeedViewController.swift in Sources */,
 				839B9FE529D36FCE00BE42AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
