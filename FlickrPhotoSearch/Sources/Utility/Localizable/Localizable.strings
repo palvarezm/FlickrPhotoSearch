@@ -9,3 +9,7 @@
 // MARK: - TabBar
 "feed_tab_bar_title" = "Feed";
 "search_tab_bar_title" = "Search";
+
+// MARK: - FeedViewController
+"feed_trending_now_title" = "Trending now on Flickr";
+
