@@ -96,8 +96,8 @@
 		839B9FF629D372F600BE42AF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				839BA00829D3824600BE42AF /* Network */,
 				839B9FE429D36FCE00BE42AF /* AppDelegate.swift */,
+				839BA00829D3824600BE42AF /* Network */,
 				839B9FFF29D37B1600BE42AF /* Utility */,
 				839B9FF729D3731E00BE42AF /* Modules */,
 			);
@@ -127,7 +127,7 @@
 		839B9FF929D3732A00BE42AF /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				839B9FFA29D3734000BE42AF /* SearchViewController.swift */,
+				839BA02729D4EBEB00BE42AF /* View */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -219,6 +219,14 @@
 				839BA02529D4BE5C00BE42AF /* FeedCell.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		839BA02729D4EBEB00BE42AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				839B9FFA29D3734000BE42AF /* SearchViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

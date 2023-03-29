@@ -5,7 +5,7 @@
 //  Created by Paul Alvarez on 28/03/23.
 //
 
-class APIRouter {
+struct APIRouter {
     struct GetTrendingFeed: Request {
         typealias ReturnType = FlickrPhotosResponse
         var method: HTTPMethod = .get
