@@ -43,10 +43,12 @@ extension Request {
 
 enum FlickrRequest {
     case getPopular
+    case search
 
     var method: String {
         switch self {
         case .getPopular: return "flickr.photos.getPopular"
+        case .search: return "flickr.photos.search"
         }
     }
 }

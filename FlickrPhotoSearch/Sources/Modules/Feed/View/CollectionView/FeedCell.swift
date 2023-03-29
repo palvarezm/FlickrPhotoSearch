@@ -120,7 +120,13 @@ class FeedCell: UICollectionViewCell {
     // MARK: - Configure
     func configure(with photo: FlickrPhotoModel) {
         guard let stringURL = photo.imageURL,
-            let url = URL(string: stringURL) else { return }
+            let url = URL(string: stringURL) else {
+                photoImageView.image = nil
+                photoTitleLabel.text = ""
+                photoAuthorLabel.text = ""
+                photoDateLabel.text = "" 
+                return
+            }
 
         photoTitleLabel.text = photo.title
         photoAuthorLabel.text = photo.author

@@ -10,10 +10,11 @@ import Combine
 class FeedViewModel {
     enum Input {
         case viewDidLoad
+        case viewShowSearchResults(searchText: String)
     }
 
     enum Output {
-        case updateList
+        case updateList(searchText: String? = nil)
     }
 
     var photoList = [FlickrPhotoModel]()
@@ -26,6 +27,8 @@ class FeedViewModel {
             switch event {
             case .viewDidLoad:
                 self?.getTrendingFeed()
+            case .viewShowSearchResults(let searchText):
+                self?.getSearchFeed(searchText: searchText)
             }
         }.store(in: &cancellables)
         return output.eraseToAnyPublisher()
@@ -39,7 +42,18 @@ class FeedViewModel {
         receiveValue: { [weak self] data in
             let fetchedPhotos = data.photos.photo
             self?.photoList.append(contentsOf: fetchedPhotos.map { FlickrPhotoModel(from: $0)} )
-            self?.output.send(.updateList)
+            self?.output.send(.updateList())
         }.store(in: &cancellables)
+    }
+
+    private func getSearchFeed(searchText: String) {
+        APIClient.dispatch(
+            APIRouter.GetSearchFeed(queryParams: APIParameters.GetSearchFeedParams(searchText: searchText)))
+            .sink { _ in }
+            receiveValue: { [weak self] data in
+                let fetchedPhotos = data.photos.photo
+                self?.photoList = fetchedPhotos.map { FlickrPhotoModel(from: $0)}
+                self?.output.send(.updateList(searchText: searchText))
+            }.store(in: &cancellables)
     }
 }

@@ -26,7 +26,7 @@ class FeedViewController: UIViewController {
         return view
     }()
 
-    let viewModel = FeedViewModel()
+    private let viewModel = FeedViewModel()
 
     private let output = PassthroughSubject<FeedViewModel.Input, Never>()
     private var cancellables = Set<AnyCancellable>()
@@ -38,6 +38,7 @@ class FeedViewController: UIViewController {
         static let photosCollectionViewTopMargin = 24.0
         static let titleLabelFontSize = 32.0
         static let backgroundColor: UIColor = .black
+        static let defaultImageSize = CGSize(width: 240.0, height: 240.0)
     }
 
     // MARK: - Lifecycle
@@ -55,8 +56,14 @@ class FeedViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
                 switch event {
-                case .updateList:
-                    self?.photosCollectionView.reloadData()
+                case .updateList(let searchText):
+                    guard let photoList = self?.viewModel.photoList else { return }
+                    if let searchText = searchText,
+                       photoList.isEmpty {
+                        self?.titleLabel.text = "\("feed_empty_title".localized) \"\(searchText)\""
+                    } else {
+                        self?.photosCollectionView.reloadData()
+                    }
                 }
             }
             .store(in: &cancellables)
@@ -89,6 +96,12 @@ class FeedViewController: UIViewController {
         ])
         photosCollectionView.register(FeedCell.self, forCellWithReuseIdentifier: String(describing: FeedCell.self))
     }
+
+    // MARK: - Actions
+    func updateSearchPhotos(searchText: String) {
+        output.send(.viewShowSearchResults(searchText: searchText))
+        titleLabel.text = "\("feed_search_title".localized) \"\(searchText)\""
+    }
 }
 
 // MARK: - Extension UICollectionViewDelegate & UICollectionViewDataSource
@@ -110,6 +123,10 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flickrPhoto = viewModel.photoList[indexPath.row]
-        return CGSize(width: flickrPhoto.imageWidth, height: flickrPhoto.imageHeight)
+
+        guard let imageWidth = flickrPhoto.imageWidth,
+              let imageHeight = flickrPhoto.imageHeight else { return Constants.defaultImageSize }
+
+        return CGSize(width: imageWidth, height: imageHeight)
     }
 }
