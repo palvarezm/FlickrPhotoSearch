@@ -15,7 +15,7 @@ class SearchViewController: UISearchContainerViewController {
         searchBar.searchBarStyle = .minimal
         searchBar.backgroundColor = Constants.searchBarBackgroundColor
 
-        searchBar.sizeToFit()
+        searchBar.setImage(UIImage(), for: .search, state: .normal)
         searchBar.placeholder = "search_search_bar_placeholder".localized
         super.init(searchController: searchViewController)
 
