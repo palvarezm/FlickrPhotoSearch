@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIParameters {
-    struct GetFeedParams: Encodable {
+    struct GetTrendingFeedParams: Encodable {
         var method: String = FlickrRequest.getPopular.method
         var apiKey: String = APIConstants.apiKey
         var userId: String = APIConstants.flickrUserId

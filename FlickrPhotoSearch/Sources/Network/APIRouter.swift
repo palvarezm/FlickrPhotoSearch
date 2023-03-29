@@ -6,12 +6,12 @@
 //
 
 class APIRouter {
-    struct GetFeed: Request {
+    struct GetTrendingFeed: Request {
         typealias ReturnType = FlickrPhotosGetPopularResponse
         var method: HTTPMethod = .get
         var queryParams: [String : Any]?
 
-        init(queryParams: APIParameters.GetFeedParams) {
+        init(queryParams: APIParameters.GetTrendingFeedParams) {
             self.queryParams = queryParams.asDictionary
         }
     }

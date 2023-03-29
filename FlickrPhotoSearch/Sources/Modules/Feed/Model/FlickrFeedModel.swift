@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct FlickrFeedModel {
-    var feed: [FlickrPhotoModel]
-}
-
 struct FlickrPhotoModel: Decodable {
     var id: String
     var imageURL: String?
