@@ -22,6 +22,8 @@
 		839BA01829D3916600BE42AF /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BA01729D3916600BE42AF /* FeedViewModel.swift */; };
 		839BA01A29D391E900BE42AF /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BA01929D391E900BE42AF /* APIRouter.swift */; };
 		839BA01D29D3929300BE42AF /* FlickrPhotosGetPopularResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BA01C29D3929300BE42AF /* FlickrPhotosGetPopularResponse.swift */; };
+		839BA01F29D39F1500BE42AF /* FlickrFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BA01E29D39F1500BE42AF /* FlickrFeedModel.swift */; };
+		839BA02129D39F4F00BE42AF /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BA02029D39F4F00BE42AF /* Date + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		839BA01729D3916600BE42AF /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		839BA01929D391E900BE42AF /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		839BA01C29D3929300BE42AF /* FlickrPhotosGetPopularResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotosGetPopularResponse.swift; sourceTree = "<group>"; };
+		839BA01E29D39F1500BE42AF /* FlickrFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrFeedModel.swift; sourceTree = "<group>"; };
+		839BA02029D39F4F00BE42AF /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,7 @@
 			children = (
 				839BA01229D38FC700BE42AF /* Encodable + Extension.swift */,
 				839BA00629D37C0F00BE42AF /* String + Extension.swift */,
+				839BA02029D39F4F00BE42AF /* Date + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -166,8 +171,8 @@
 				839BA00A29D382FF00BE42AF /* APIParameters.swift */,
 				839BA00C29D3833000BE42AF /* APIClient.swift */,
 				839BA01029D3871000BE42AF /* APIConstants.swift */,
-				839BA00E29D385CF00BE42AF /* Request.swift */,
 				839BA01929D391E900BE42AF /* APIRouter.swift */,
+				839BA00E29D385CF00BE42AF /* Request.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				839BA01B29D3926400BE42AF /* RemoteData */,
+				839BA01E29D39F1500BE42AF /* FlickrFeedModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,11 +282,13 @@
 			files = (
 				839BA00B29D382FF00BE42AF /* APIParameters.swift in Sources */,
 				839BA01A29D391E900BE42AF /* APIRouter.swift in Sources */,
+				839BA01F29D39F1500BE42AF /* FlickrFeedModel.swift in Sources */,
 				839BA00F29D385CF00BE42AF /* Request.swift in Sources */,
 				839BA00D29D3833000BE42AF /* APIClient.swift in Sources */,
 				839BA01329D38FC700BE42AF /* Encodable + Extension.swift in Sources */,
 				839B9FFB29D3734000BE42AF /* SearchViewController.swift in Sources */,
 				839BA01829D3916600BE42AF /* FeedViewModel.swift in Sources */,
+				839BA02129D39F4F00BE42AF /* Date + Extension.swift in Sources */,
 				839B9FFE29D3738000BE42AF /* TabBarController.swift in Sources */,
 				839BA01D29D3929300BE42AF /* FlickrPhotosGetPopularResponse.swift in Sources */,
 				839BA01129D3871000BE42AF /* APIConstants.swift in Sources */,
