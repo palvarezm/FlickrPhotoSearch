@@ -24,4 +24,11 @@ class TabBarController: UITabBarController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    public func setSearchFeed(searchText: String) {
+        guard let feedViewController = self.viewControllers?.first as? FeedViewController else { return }
+
+        self.selectedIndex = 0
+        feedViewController.updateSearchPhotos(searchText: searchText)
+    }
 }

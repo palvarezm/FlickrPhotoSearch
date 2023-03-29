@@ -12,4 +12,8 @@
 
 // MARK: - FeedViewController
 "feed_trending_now_title" = "Trending now on Flickr";
+"feed_search_title" = "Search Results for";
+"feed_empty_title" = "No search results for";
 
+// MARK: - Search
+"search_search_bar_placeholder" = "Search";

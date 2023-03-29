@@ -26,4 +26,23 @@ struct APIParameters {
             case perPage = "per_page"
         }
     }
+
+    struct GetSearchFeedParams: Encodable {
+        var method: String = FlickrRequest.search.method
+        var apiKey: String = APIConstants.apiKey
+        var searchText: String = ""
+        var format: String = "json"
+        var noJsonCallback: Int = APIConstants.jsonNoCallback
+        var page: Int = 0
+        var perPage: Int = APIConstants.photosPerPage
+        var extras: String = APIConstants.extras
+        
+        private enum CodingKeys: String, CodingKey {
+            case method, format, page, extras
+            case apiKey = "api_key"
+            case searchText = "text"
+            case noJsonCallback = "nojsoncallback"
+            case perPage = "per_page"
+        }
+    }
 }

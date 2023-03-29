@@ -10,8 +10,8 @@ import Foundation
 struct FlickrPhotoModel: Decodable {
     var id: String
     var imageURL: String?
-    var imageHeight: Int
-    var imageWidth: Int
+    var imageHeight: Int?
+    var imageWidth: Int?
     var author: String
     var title: String
     var publishedAt: String
@@ -22,7 +22,7 @@ struct FlickrPhotoModel: Decodable {
         self.author = response.ownerName
         self.title =  response.title
         self.publishedAt = Date(seconds: Int64(response.dateUpload) ?? 0).formattedAsPhotoInfoString()
-        self.imageHeight = response.imageHeight ?? 640
-        self.imageWidth = response.imageWidth ?? 640
+        self.imageHeight = response.imageHeight
+        self.imageWidth = response.imageWidth
     }
 }

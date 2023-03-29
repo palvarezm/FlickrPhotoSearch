@@ -5,7 +5,7 @@
 //  Created by Paul Alvarez on 28/03/23.
 //
 
-struct FlickrPhotosGetPopularResponse: Codable {
+struct FlickrPhotosResponse: Codable {
     var photos: Photos
     var stat: String
 
