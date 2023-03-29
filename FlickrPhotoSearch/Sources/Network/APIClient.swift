@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+// MARK: - NetworkRequestError
 enum NetworkRequestError: LocalizedError, Equatable {
     case badRequest
     case unauthorized
@@ -22,7 +23,14 @@ enum NetworkRequestError: LocalizedError, Equatable {
     case unknownError
 }
 
-struct NetworkDispatcher {
+// MARK: - NetworkDispatcher
+protocol NetworkDispatcher {
+    var urlSession: URLSession! { get }
+
+    func dispatch<ReturnType: Codable>(request: URLRequest) -> AnyPublisher<ReturnType, NetworkRequestError>
+}
+
+struct NetworkDispatcherImpl: NetworkDispatcher {
     let urlSession: URLSession!
 
     public init(urlSession: URLSession = .shared) {
@@ -37,7 +45,7 @@ struct NetworkDispatcher {
             .tryMap( { data, response in
                 guard let response = response as? HTTPURLResponse else { throw httpError(0) }
 
-                print("[\(response.statusCode)] '\(request.url!)'")
+                debugPrint("[\(response.statusCode)] '\(request.url!)'")
                 if !(200...299).contains(response.statusCode) {
                     throw httpError(response.statusCode)
                 }
@@ -75,10 +83,16 @@ struct NetworkDispatcher {
     }
 }
 
-struct APIClient {
-    static var networkDispatcher: NetworkDispatcher = NetworkDispatcher()
+// MARK: - APIClient
+protocol APIClient {
+    var networkDispatcher: NetworkDispatcher { get }
+    func dispatch<R: Request>(_ request: R) -> AnyPublisher<R.ReturnType, NetworkRequestError>
+}
 
-    static func dispatch<R: Request>(_ request: R) -> AnyPublisher<R.ReturnType, NetworkRequestError> {
+class APIClientImpl: APIClient {
+    var networkDispatcher: NetworkDispatcher = NetworkDispatcherImpl()
+
+    func dispatch<R: Request>(_ request: R) -> AnyPublisher<R.ReturnType, NetworkRequestError> {
         guard let urlRequest = request.asURLRequest(baseURL: APIConstants.baseURL) else {
             return Fail(outputType: R.ReturnType.self, failure: NetworkRequestError.badRequest).eraseToAnyPublisher()
         }
