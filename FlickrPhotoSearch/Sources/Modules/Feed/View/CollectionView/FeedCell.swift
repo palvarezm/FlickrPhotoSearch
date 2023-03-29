@@ -66,16 +66,36 @@ class FeedCell: UICollectionViewCell {
         static let photoDateLabelNumberOfLines = 1
     }
 
-    private var cancellables: Set<AnyCancellable> = Set()
+    private let viewModel = FeedCellViewModel()
+    private let output = PassthroughSubject<FeedCellViewModel.Input, Never>()
+    private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
+
+        bindings()
         setup()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        resetPhotoInfo()
+    }
+
+    // MARK: - Bindings
+    private func bindings() {
+        viewModel.transform(input: output.eraseToAnyPublisher())
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] event in
+                if case let .updateImage(image) = event {
+                    self?.photoImageView.image = image
+                }
+            }.store(in: &cancellables)
     }
 
     // MARK: - Setup
@@ -121,22 +141,20 @@ class FeedCell: UICollectionViewCell {
     func configure(with photo: FlickrPhotoModel) {
         guard let stringURL = photo.imageURL,
             let url = URL(string: stringURL) else {
-                photoImageView.image = nil
-                photoTitleLabel.text = ""
-                photoAuthorLabel.text = ""
-                photoDateLabel.text = "" 
+                resetPhotoInfo()
                 return
             }
 
         photoTitleLabel.text = photo.title
         photoAuthorLabel.text = photo.author
         photoDateLabel.text = photo.publishedAt
-        URLSession.shared
-            .dataTaskPublisher(for: url)
-         .map { UIImage(data: $0.data) }
-         .replaceError(with: nil)
-         .receive(on: DispatchQueue.main)
-         .assign(to: \.image, on: self.photoImageView)
-         .store(in: &cancellables)
+        output.send(.cellWillAppear(url: url))
+    }
+
+    private func resetPhotoInfo() {
+        photoImageView.image = nil
+        photoTitleLabel.text = ""
+        photoAuthorLabel.text = ""
+        photoDateLabel.text = ""
     }
 }

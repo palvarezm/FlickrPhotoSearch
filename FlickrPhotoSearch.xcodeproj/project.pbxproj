@@ -25,6 +25,7 @@
 		839BA01F29D39F1500BE42AF /* FlickrFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BA01E29D39F1500BE42AF /* FlickrFeedModel.swift */; };
 		839BA02129D39F4F00BE42AF /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BA02029D39F4F00BE42AF /* Date + Extension.swift */; };
 		839BA02629D4BE5C00BE42AF /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BA02529D4BE5C00BE42AF /* FeedCell.swift */; };
+		839BA03829D4F96700BE42AF /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BA03729D4F96700BE42AF /* FeedCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		839BA01E29D39F1500BE42AF /* FlickrFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrFeedModel.swift; sourceTree = "<group>"; };
 		839BA02029D39F4F00BE42AF /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		839BA02529D4BE5C00BE42AF /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		839BA03729D4F96700BE42AF /* FeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				839BA02529D4BE5C00BE42AF /* FeedCell.swift */,
+				839BA03729D4F96700BE42AF /* FeedCellViewModel.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				839BA03829D4F96700BE42AF /* FeedCellViewModel.swift in Sources */,
 				839BA00B29D382FF00BE42AF /* APIParameters.swift in Sources */,
 				839BA01A29D391E900BE42AF /* APIRouter.swift in Sources */,
 				839BA01F29D39F1500BE42AF /* FlickrFeedModel.swift in Sources */,
