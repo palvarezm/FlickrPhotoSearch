@@ -19,8 +19,13 @@ class FeedViewModel {
 
     var photoList = [FlickrPhotoModel]()
 
+    private var apiClient: APIClient
     private let output = PassthroughSubject<FeedViewModel.Output, Never>()
     private var cancellables: Set<AnyCancellable> = []
+
+    init(apiClient: APIClient = APIClientImpl()) {
+        self.apiClient = apiClient
+    }
 
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input.sink { [weak self] event in
@@ -35,7 +40,7 @@ class FeedViewModel {
     }
 
     private func getTrendingFeed() {
-        APIClient.dispatch(
+        apiClient.dispatch(
             APIRouter.GetTrendingFeed(queryParams:
                                 APIParameters.GetTrendingFeedParams()))
         .sink { _ in }
@@ -47,7 +52,7 @@ class FeedViewModel {
     }
 
     private func getSearchFeed(searchText: String) {
-        APIClient.dispatch(
+        apiClient.dispatch(
             APIRouter.GetSearchFeed(queryParams: APIParameters.GetSearchFeedParams(searchText: searchText)))
             .sink { _ in }
             receiveValue: { [weak self] data in
