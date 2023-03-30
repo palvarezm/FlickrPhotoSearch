@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  FlickrPhotoSearch
+
+  Created by Paul Alvarez on 28/03/23.
+  
+*/
+
+// MARK: - TabBar
+"feed_tab_bar_title" = "Feed";
+"search_tab_bar_title" = "Search";
+
+// MARK: - FeedViewController
+"feed_trending_now_title" = "Trending now on Flickr";
+"feed_search_title" = "Search Results for";
+"feed_empty_title" = "No search results for";
+
+// MARK: - Search
+"search_search_bar_placeholder" = "Search";
