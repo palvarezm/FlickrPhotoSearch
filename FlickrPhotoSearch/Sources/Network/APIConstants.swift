@@ -9,8 +9,8 @@ import Foundation
 
 final class APIConstants {
     static let baseURL = "https://www.flickr.com/services/rest"
-    #warning("Remove apiKey")
-    static let apiKey = "249b7b1bb5210e975eb2827149a20161"
+    #warning("api key should be handled at deployment")
+    static let apiKey = "141349cc8aa80cc70f8cea4485e81095"
 
     static let flickrUserId = "66956608@N06"
     static let jsonFormat = "json"
@@ -18,5 +18,5 @@ final class APIConstants {
 
     
     static let jsonNoCallback = 1
-    static let photosPerPage = 100
+    static let photosPerPage = 300
 }

@@ -46,7 +46,8 @@ class FeedViewModel {
         .sink { _ in }
         receiveValue: { [weak self] data in
             let fetchedPhotos = data.photos.photo
-            self?.photoList.append(contentsOf: fetchedPhotos.map { FlickrPhotoModel(from: $0)} )
+            let photos = fetchedPhotos.map { FlickrPhotoModel(from: $0) }
+            self?.photoList = photos.filter { $0.imageURL != nil }
             self?.output.send(.updateList())
         }.store(in: &cancellables)
     }
@@ -57,7 +58,8 @@ class FeedViewModel {
             .sink { _ in }
             receiveValue: { [weak self] data in
                 let fetchedPhotos = data.photos.photo
-                self?.photoList = fetchedPhotos.map { FlickrPhotoModel(from: $0)}
+                let photos = fetchedPhotos.map { FlickrPhotoModel(from: $0) }
+                self?.photoList = photos.filter { $0.imageURL != nil }
                 self?.output.send(.updateList(searchText: searchText))
             }.store(in: &cancellables)
     }
