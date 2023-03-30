@@ -84,7 +84,7 @@ class FeedCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        resetPhotoInfo()
+        resetCellInfo()
     }
 
     // MARK: - Bindings
@@ -141,7 +141,7 @@ class FeedCell: UICollectionViewCell {
     func configure(with photo: FlickrPhotoModel) {
         guard let stringURL = photo.imageURL,
             let url = URL(string: stringURL) else {
-                resetPhotoInfo()
+                resetCellInfo()
                 return
             }
 
@@ -151,7 +151,7 @@ class FeedCell: UICollectionViewCell {
         output.send(.cellWillAppear(url: url))
     }
 
-    private func resetPhotoInfo() {
+    private func resetCellInfo() {
         photoImageView.image = nil
         photoTitleLabel.text = ""
         photoAuthorLabel.text = ""
